@@ -31,9 +31,11 @@ class DisplayWidget extends StatelessWidget {
       padding: const EdgeInsets.all(20.0),
       child: Text(
         displayText,
-        style: GoogleFonts.poppins(  // Apply Google font (Roboto in this case)
+        style: GoogleFonts.poppins(  // Apply Google font (Poppins in this case)
           fontSize: 36,  // Font size
-          color: const Color.fromARGB(233, 75, 4, 97),  // Text color
+          color: Theme.of(context).brightness == Brightness.dark
+              ? Colors.white  // Text color for dark mode
+              : const Color.fromARGB(233, 75, 4, 97),  // Text color for light mode
           fontWeight: FontWeight.w400,  // Font weight
           letterSpacing: 1.2,  // Adjust letter spacing
           height: 1.3,  // Adjust line height if you want more vertical spacing
@@ -43,3 +45,4 @@ class DisplayWidget extends StatelessWidget {
     );
   }
 }
+

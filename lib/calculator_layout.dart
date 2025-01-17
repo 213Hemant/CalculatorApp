@@ -32,12 +32,23 @@ class _CalculatorLayoutState extends State<CalculatorLayout> {
       // appBar: AppBar(title: const Text('Simple Calculator')),
       body: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.white, Color.fromARGB(255, 200, 180, 250)],
-            // (255, 200, 180, 250)
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
+          gradient: Theme.of(context).brightness == Brightness.dark
+              ? LinearGradient(
+                  colors: [
+                    Colors.black,
+                    Colors.grey.shade800
+                  ], // Dark mode colors
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                )
+              : LinearGradient(
+                  colors: [
+                    Colors.white,
+                    Color.fromARGB(255, 200, 180, 250)
+                  ], // Light mode colors
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
         ),
         child: Column(
           children: [
@@ -45,7 +56,7 @@ class _CalculatorLayoutState extends State<CalculatorLayout> {
               height: 300, // Adjust the height as needed
               child: Container(
                 margin: const EdgeInsets.only(
-                  top: 35, // Top margin
+                  top: 20, // Top margin
                   right: 14, // Right margin
                   bottom: 0, // Bottom margin
                   left: 14, // Left margin
@@ -80,6 +91,7 @@ class _CalculatorLayoutState extends State<CalculatorLayout> {
               ),
             ),
             Divider(
+              height: 5,
               color: Colors.white30, // Line color
               thickness: 3.0, // Line thickness
               indent: 5.0, // Space from the left
